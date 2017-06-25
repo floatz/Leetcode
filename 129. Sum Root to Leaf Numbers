@@ -1,0 +1,28 @@
+//https://leetcode.com/problems/sum-root-to-leaf-numbers/#/description
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    void dfs(TreeNode* root, int x, vector<int>& vec){
+        if (root==NULL) return;
+        x = 10*x +root->val;
+        if (!root->left&&!root->right&&x!=0) vec.push_back(x);
+        dfs(root->left, x, vec);
+        dfs(root->right, x, vec);
+    }
+    int sumNumbers(TreeNode* root) {
+        vector<int> vec;
+        int x =0;
+        dfs(root, x, vec);
+        int s=0;
+        for (int i =0;i<vec.size();i++) s+=vec[i];
+        return s;
+    }
+};
