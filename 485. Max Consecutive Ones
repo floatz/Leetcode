@@ -1,0 +1,18 @@
+// a simple DP problem. keep tracking the maxNum of "1" s, counting the "1" until nums[i] =0, and reset the counting =0
+//https://leetcode.com/problems/max-consecutive-ones/#/description
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+        int maxNum = 0;
+        int tmp = 0;
+        for (int i = 0; i<nums.size();i++){            
+            if (nums[i]==1) tmp++;
+            if (nums[i]==0) {
+                maxNum = max(maxNum, tmp);
+                tmp =0;
+            }
+        }
+        maxNum = max(maxNum, tmp);
+        return maxNum;
+    }
+};
