@@ -1,0 +1,16 @@
+// use unorder_map has better runtime
+// https://leetcode.com/problems/find-the-difference/#/description
+class Solution {
+public:
+    char findTheDifference(string s, string t) {
+           sort(begin(s), end(s));
+           sort(begin(t), end(t));
+           int i=0, j=0;
+           while (i<s.length()){
+               if (s[i]!=t[j]) return t[j];
+               i++;
+               j++;
+           }
+           return t[j];        
+    }
+};
