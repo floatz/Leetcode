@@ -1,0 +1,15 @@
+//https://leetcode.com/problems/base-7/#/description
+#include<cmath>
+class Solution {
+public:
+    string convertToBase7(int num) {
+        int sign = num<0?-1:1;
+        int tmp = abs(num), res=0, n=0;
+        while(tmp>0){
+            res = res+pow(10,n)*(tmp%7);
+            tmp /= 7;
+            n++;
+        }
+        return to_string(res*sign);
+    }
+};
