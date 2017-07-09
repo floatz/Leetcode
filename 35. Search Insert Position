@@ -1,0 +1,13 @@
+//https://leetcode.com/problems/search-insert-position/#/description
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int n = nums.size();
+        int i=0;
+        while (i<n && nums[i]<=target){
+            i++;
+        }
+        if (nums[i-1] == target) return max(0, i-1);
+        return max(0, i);
+    }
+};
