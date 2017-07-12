@@ -1,0 +1,21 @@
+//https://leetcode.com/problems/sum-of-square-numbers/#/description
+class Solution {
+public:
+    bool judgeSquareSum(int c) {
+        if (c<0) return false;
+        if (c==1 || c==0) return true;
+        int n = c/2;
+        for (int i=1;i<=n;i++){
+            int tmp = c-i*i;
+            if (tmp<0) return false;
+            if (isSquare(tmp)) return true;
+        }
+        return false;
+    }
+    bool isSquare(int x){
+        double n = sqrt(x);
+        int tmp = n;
+        if (tmp*tmp==x) return true;
+        return false;
+    }
+};
