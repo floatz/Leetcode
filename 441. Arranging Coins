@@ -1,0 +1,16 @@
+//https://leetcode.com/problems/arranging-coins/#/description
+
+class Solution {
+public:
+    int arrangeCoins(int n) {
+        if (n==1) return 1;
+        long i = 1, sum = 0;
+        while (i<n){
+            sum += i;
+            if (sum==n) return i;
+            if (sum>n) break;
+            i++;            
+        }
+        return i-1;        
+    }
+};
