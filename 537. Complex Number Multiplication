@@ -1,0 +1,23 @@
+//https://leetcode.com/problems/complex-number-multiplication/#/description
+class Solution {
+public:
+    string complexNumberMultiply(string a, string b) {
+        int i = 0;
+        while(i<a.size()){
+            if (a[i]=='+') break;
+            i++;
+        }
+        string a1 = a.substr(0,i), a2 = a.substr(i+1,a.size());
+        i = 0;
+        while(i<b.size()){
+            if (b[i]=='+') break;
+            i++;
+        }
+        string b1 = b.substr(0,i), b2 = b.substr(i+1,b.size());
+        int ia1 = stoi(a1), ia2 = stoi(a2), ib1 = stoi(b1), ib2 = stoi(b2);
+        int r1 = ia1*ib1 - ia2*ib2;
+        int r2 = ia2*ib1 + ib2*ia1;
+        string res = to_string(r1)+'+'+to_string(r2)+'i';
+        return res;
+    }
+};
